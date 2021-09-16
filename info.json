@@ -1,0 +1,13 @@
+{
+  "name": "GuiEditor",
+  "version": "0.0.1",
+  "title": "Gui Editor",
+  "author": "Ritn",
+  "description": "GUI Editor permet de construire une interface facilement et de récupérer le code source de construction du GUI.\n\nGUI Editor allows you to easily build an interface and get the GUI build source code.",
+  "factorio_version": "1.1",
+  "dependencies": [
+    "base >= 1.1",
+    "RitnLib >= 0.5",
+    "gvv >= 0.4"
+  ]
+}
