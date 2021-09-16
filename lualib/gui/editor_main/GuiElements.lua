@@ -1,7 +1,5 @@
 ---------------------------------------------------------------------------------------------
 local flib = {}
-flib.gui =         require(ritnlib.defines.gui)
-flib.styles =      require(ritnlib.defines.styles)
 flib.global =      require(ritnmods.gedit.defines.lib.functions.global)
 ---------------------------------------------------------------------------------------------
 
@@ -13,7 +11,7 @@ local width = 278
 
 local function createButtonElement(content, source, elementName)
     -- Element : Tab (sprite-button)
-    content[elementName] = flib.gui.createSpriteButton(
+    content[elementName] = ritnlib.gui.createSpriteButton(
         source,
         ritnmods.gedit.defines.gui.editor_main[elementName].name,
         ritnmods.gedit.defines.gui.editor_main[elementName].sprite,
@@ -32,7 +30,7 @@ local function create(LuaPlayer)
     local content = {}
 
     -- Main
-    content.main = flib.gui.createFrame(
+    content.main = ritnlib.gui.createFrame(
         screen,
         ritnmods.gedit.defines.gui.editor_main.frame.name,
         ritnmods.gedit.defines.gui.editor_main.frame.caption
@@ -44,7 +42,7 @@ local function create(LuaPlayer)
 
     if global.gedit.players[LuaPlayer.name].main.last_x == -1 
     and global.gedit.players[LuaPlayer.name].main.last_x == -1 then
-        flib.gui.frameAutoCenter(content.main)
+        ritnlib.gui.frameAutoCenter(content.main)
     else
         content.main.location = {
             global.gedit.players[LuaPlayer.name].main.last_x,
@@ -53,7 +51,7 @@ local function create(LuaPlayer)
     end
     
     -- Header (flow)
-    content.header = flib.gui.createFlowH(
+    content.header = ritnlib.gui.createFlowH(
         content.main,
         ritnmods.gedit.defines.gui.editor_main.header.name
     )
@@ -61,7 +59,7 @@ local function create(LuaPlayer)
     content.header.style.vertically_stretchable = false
 
     -- title (label)
-    content.title = flib.gui.createLabel(
+    content.title = ritnlib.gui.createLabel(
         content.header,
         ritnmods.gedit.defines.gui.editor_main.title.name,
         ritnmods.gedit.defines.gui.editor_main.title.caption
@@ -70,7 +68,7 @@ local function create(LuaPlayer)
     content.title.drag_target = content.main
 
     -- drag (empty-widget)
-    content.drag = flib.gui.createEmptyWidget(content.header)
+    content.drag = ritnlib.gui.createEmptyWidget(content.header)
     content.drag.name = ritnmods.gedit.defines.gui.editor_main.drag.name
     content.drag.style = ritnmods.gedit.defines.gui.editor_main.drag.style
     content.drag.drag_target = content.main
@@ -79,7 +77,7 @@ local function create(LuaPlayer)
     content.drag.style.horizontally_stretchable = true
     content.drag.style.vertically_stretchable = true
 
-    content.buttonClose = flib.gui.createSpriteButton(
+    content.buttonClose = ritnlib.gui.createSpriteButton(
         content.header,
         ritnmods.gedit.defines.gui.editor_main.buttonClose.name,
         ritnmods.gedit.defines.gui.editor_main.buttonClose.sprite,
@@ -89,7 +87,7 @@ local function create(LuaPlayer)
     content.buttonClose.mouse_button_filter = {'left'}
   
     -- corp de la frame - partie source (flow)
-    content.corpMain = flib.gui.createFlowV(
+    content.corpMain = ritnlib.gui.createFlowV(
         content.main,
         ritnmods.gedit.defines.gui.editor_main.corpMain.name
     )
@@ -99,7 +97,7 @@ local function create(LuaPlayer)
     content.corpMain.style.height = 490
 
     -- corp de la partie - Source
-    content.corpSource = flib.gui.createFlowH(
+    content.corpSource = ritnlib.gui.createFlowH(
         content.corpMain,
         ritnmods.gedit.defines.gui.editor_main.corpSource.name
     )
@@ -109,7 +107,7 @@ local function create(LuaPlayer)
     content.corpSource.style.height = 32
 
     -- button back (source)
-    content.buttonBackSource = flib.gui.createSpriteButton(
+    content.buttonBackSource = ritnlib.gui.createSpriteButton(
         content.corpSource,
         ritnmods.gedit.defines.gui.editor_main.buttonBackSource.name,
         ritnmods.gedit.defines.gui.editor_main.buttonBackSource.sprite,
@@ -118,7 +116,7 @@ local function create(LuaPlayer)
     content.buttonBackSource.style.size = 28
 
     -- Drop-Down (source)
-    content.dropSource = flib.gui.createDropDown(
+    content.dropSource = ritnlib.gui.createDropDown(
         content.corpSource,
         ritnmods.gedit.defines.gui.editor_main.dropSource.name
     )
@@ -132,7 +130,7 @@ local function create(LuaPlayer)
 
 
     -- list des enfants de la source
-    content.listChildren = flib.gui.createList(
+    content.listChildren = ritnlib.gui.createList(
         content.corpMain,
         ritnmods.gedit.defines.gui.editor_main.listChildren.name
     )
@@ -147,7 +145,7 @@ local function create(LuaPlayer)
     content.listChildren.selected_index = global.gedit.players[LuaPlayer.name].main.children_selected_index
 
     -- flow button source :
-    content.FlowButtonSource = flib.gui.createFlowH(
+    content.FlowButtonSource = ritnlib.gui.createFlowH(
         content.corpMain,
         ritnmods.gedit.defines.gui.editor_main.FlowButtonSource.name
     )
@@ -157,7 +155,7 @@ local function create(LuaPlayer)
     content.FlowButtonSource.style.height = 32
 
     -- button Suppression (source)
-    content.buttonSuppr = flib.gui.createSpriteButton(
+    content.buttonSuppr = ritnlib.gui.createSpriteButton(
         content.FlowButtonSource,
         ritnmods.gedit.defines.gui.editor_main.buttonSupprSource.name,
         ritnmods.gedit.defines.gui.editor_main.buttonSupprSource.sprite,
@@ -167,12 +165,12 @@ local function create(LuaPlayer)
     content.buttonSuppr.style.size = 28
 
     -- empty-widget 
-    content.emptyButtonSourceMini = flib.gui.createEmptyWidget(content.FlowButtonSource)
+    content.emptyButtonSourceMini = ritnlib.gui.createEmptyWidget(content.FlowButtonSource)
     content.emptyButtonSourceMini.style.height = 28
     content.emptyButtonSourceMini.style.width = 5
 
     -- button propriétés (source)
-    content.buttonParam = flib.gui.createSpriteButton(
+    content.buttonParam = ritnlib.gui.createSpriteButton(
         content.FlowButtonSource,
         ritnmods.gedit.defines.gui.editor_main.buttonParamSource.name,
         ritnmods.gedit.defines.gui.editor_main.buttonParamSource.sprite,
@@ -183,12 +181,12 @@ local function create(LuaPlayer)
     
 
     -- empty-widget 
-    content.emptyButtonSource = flib.gui.createEmptyWidget(content.FlowButtonSource)
+    content.emptyButtonSource = ritnlib.gui.createEmptyWidget(content.FlowButtonSource)
     content.emptyButtonSource.style.height = 28
     content.emptyButtonSource.style.width = width - 121
    
     -- button Validation (source)
-    content.buttonValid = flib.gui.createSpriteButton(
+    content.buttonValid = ritnlib.gui.createSpriteButton(
         content.FlowButtonSource,
         ritnmods.gedit.defines.gui.editor_main.buttonValidSource.name,
         ritnmods.gedit.defines.gui.editor_main.buttonValidSource.sprite,
@@ -198,13 +196,13 @@ local function create(LuaPlayer)
     content.buttonValid.style.size = 28
 
     -- ligne de séparation
-    content.LineSource = flib.gui.createLineH(
+    content.LineSource = ritnlib.gui.createLineH(
         content.corpMain,
         ritnmods.gedit.defines.gui.editor_main.LineSource.name
     )
 
     -- Label Elements :
-    content.labelElements = flib.gui.createLabel(
+    content.labelElements = ritnlib.gui.createLabel(
         content.corpMain,
         ritnmods.gedit.defines.gui.editor_main.labelElements.name,
         ritnmods.gedit.defines.gui.editor_main.labelElements.caption
@@ -213,7 +211,7 @@ local function create(LuaPlayer)
 
 
     -- Frame qui contient tout les elements
-    content.chooseElement = flib.gui.createFrame(
+    content.chooseElement = ritnlib.gui.createFrame(
         content.corpMain,
         ritnmods.gedit.defines.gui.editor_main.chooseElement.name,
         ritnmods.gedit.defines.gui.editor_main.chooseElement.caption
@@ -223,7 +221,7 @@ local function create(LuaPlayer)
     content.chooseElement.style.height = 126
 
     -- Flow : ligne d'element 1
-    content.FlowElement1 = flib.gui.createFlowH(
+    content.FlowElement1 = ritnlib.gui.createFlowH(
         content.chooseElement,
         ritnmods.gedit.defines.gui.editor_main.FlowElement1.name
     )
@@ -233,7 +231,7 @@ local function create(LuaPlayer)
     content.FlowElement1.style.height = 42
 
     -- Flow : ligne d'element 2
-    content.FlowElement2 = flib.gui.createFlowH(
+    content.FlowElement2 = ritnlib.gui.createFlowH(
         content.chooseElement,
         ritnmods.gedit.defines.gui.editor_main.FlowElement2.name
     )
@@ -243,7 +241,7 @@ local function create(LuaPlayer)
     content.FlowElement2.style.height = 42
 
     -- Flow : ligne d'element 3
-    content.FlowElement3 = flib.gui.createFlowH(
+    content.FlowElement3 = ritnlib.gui.createFlowH(
         content.chooseElement,
         ritnmods.gedit.defines.gui.editor_main.FlowElement3.name
     )
@@ -363,6 +361,14 @@ local function create(LuaPlayer)
     createButtonElement(
         content.element,
         content.FlowElement3,
+        "elementDropDown"
+    )
+    content.element.elementDropDown.visible = flib.global.get_visible_byType(LuaPlayer, "drop-down")
+
+    -- Element : Checkbox (sprite-button)
+    createButtonElement(
+        content.element,
+        content.FlowElement3,
         "elementCheckbox"
     )
     content.element.elementCheckbox.visible = flib.global.get_visible_byType(LuaPlayer, "checkbox")
@@ -407,33 +413,6 @@ local function create(LuaPlayer)
     )
     content.element.elementTable.visible = flib.global.get_visible_byType(LuaPlayer, "table")
 
---[[
-    -- flow button source :
-    content.FlowButtonElement = flib.gui.createFlowH(
-        content.corpMain,
-        ritnmods.gedit.defines.gui.editor_main.FlowButtonElement.name
-    )
-    content.FlowButtonElement.style.horizontally_stretchable = true
-    content.FlowButtonElement.style.vertically_stretchable = true
-    content.FlowButtonElement.style.width = width - 16
-    content.FlowButtonElement.style.height = 32
-
-    -- empty-widget 
-    content.emptyButtonElement = flib.gui.createEmptyWidget(content.FlowButtonElement)
-    content.emptyButtonElement.style.height = 28
-    content.emptyButtonElement.style.width = width - 48
-
-    -- button propriétés (source)
-    content.buttonAdd = flib.gui.createSpriteButton(
-        content.FlowButtonElement,
-        ritnmods.gedit.defines.gui.editor_main.buttonAddElement.name,
-        ritnmods.gedit.defines.gui.editor_main.buttonAddElement.sprite,
-        "frame_action_button",
-        ritnmods.gedit.defines.gui.editor_main.buttonAddElement.tooltip
-    )
-    content.buttonAdd.style.size = 28
-]]
-
 end
 
 
@@ -442,7 +421,7 @@ end
 local function close(LuaPlayer)
     local screen = LuaPlayer.gui.screen
     local frame = screen[ritnmods.gedit.defines.gui.editor_main.frame.name]
-  
+
     if frame then 
         global.gedit.players[LuaPlayer.name].main.last_x = frame.location.x
         global.gedit.players[LuaPlayer.name].main.last_y = frame.location.y
@@ -455,6 +434,7 @@ end
 local function open(LuaPlayer)
     close(LuaPlayer)
     create(LuaPlayer)
+    --LuaPlayer.print("Gui_Editor -> Open")
 end
 
 

@@ -6,6 +6,11 @@
 
 -- Variable global ritnmods permettant le lien avec d'autres mods Ritnmods
 if not ritnlib then require("__RitnLib__/defines") end
+  ritnlib.gui = require(ritnlib.defines.gui)
+  ritnlib.styles = require(ritnlib.defines.styles)
+
+
+  
 if not ritnmods then ritnmods = {
     gedit = {
     -- definitions des constantes

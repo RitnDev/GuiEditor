@@ -1,16 +1,22 @@
 -- Fonctions "player"
+local modGui = require("mod-gui")
 
-local function new_player_global()
+
+local function new_player_global(LuaPlayer)
     return {
+        parametres = {
+            ui_name = "myGUI",
+            separateur = "-",
+        },
         main = {
             last_x = -1,
             last_y = -1,
             source_origine = "gui",
             source_show = "gui",
+            source_index = 1,
             children_selected = "top",
             children_selected_index = 1,
             children_selected_type = "flow",
-            source_index = 1,
             path_source = {
                 ["gui"] = {
                     name = "gui",
@@ -24,6 +30,7 @@ local function new_player_global()
                             type = "flow",
                             parent = "gui",
                             children = {},
+                            guiElement = modGui.get_button_flow(LuaPlayer),
                             default = true
                         },
                         ["left"] = {
@@ -32,6 +39,7 @@ local function new_player_global()
                             type = "flow",
                             parent = "gui",
                             children = {},
+                            guiElement = modGui.get_frame_flow(LuaPlayer),
                             default = true
                         },
                         ["screen"] = {
@@ -40,6 +48,7 @@ local function new_player_global()
                             type = "flow",
                             parent = "gui",
                             children = {},
+                            guiElement = LuaPlayer.gui.screen,
                             default = true
                         },
                         ["center"] = {
@@ -48,6 +57,7 @@ local function new_player_global()
                             type = "flow",
                             parent = "gui",
                             children = {},
+                            guiElement = LuaPlayer.gui.center,
                             default = true
                         }
                     },
@@ -89,18 +99,19 @@ end
 -- renvoie le type d'un enfants selectionnée
 local function get_type_children(LuaPlayer) 
     if not global.gedit.players[LuaPlayer.name] then return end
-
     local children_name = global.gedit.players[LuaPlayer.name].main.children_selected
+    
     local source = global.gedit.players[LuaPlayer.name].main.path_source["gui"]
     local table_name = global.gedit.players[LuaPlayer.name].table_name
     table.insert(table_name, children_name)
-    
+
     if #table_name ~= 1 then 
         for i = 2, #table_name do 
             source = source.children[table_name[i]]
         end
     end
 
+    table.remove(table_name)
     return source.type
 end
 

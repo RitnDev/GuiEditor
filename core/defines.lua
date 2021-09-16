@@ -14,6 +14,7 @@ defines.modules = {
     core = "core/modules",
     gui = {
         editor_main = modules .. "gui_editor_main",
+        properties = modules .. "gui_properties",
     },
     player = modules .. "player",
     events = modules .. "events",
@@ -27,10 +28,15 @@ defines.lib = {
         main = {
             action = libGui .. "editor_main/action",
             GuiElements = libGui .. "editor_main/GuiElements"
-        }
+        },
+        prop = {
+            action = libGui .. "gui_properties/action",
+            GuiElements = libGui .. "gui_properties/GuiElements"
+        },
     },
     functions = {
-        global = libFunc .. "global"
+        global = libFunc .. "global",
+        gui = libFunc .. "gui",
     }
 }
 
@@ -328,6 +334,13 @@ defines.gui = {
             tooltip = {"tooltip.editor_main-element-textbox"}
         },
 
+    },
+
+    editor_prop = {
+        frame = {
+            name = prefix .. "frame-prop",
+            caption = "Propriétés"
+        },
     }
 
 }
