@@ -26,12 +26,13 @@ local function on_gui_click(e)
     -- récupération des informations lors du clique
     click.ui, click.element, click.name = string.match(element.name, pattern)
     click.action = click.element .. "-" .. click.name
+    local type = "frame"                                      ---- A SUPPR
 
     -- Actions
     if click.ui == "gedit" then
         if click.element ~= "button" then return end
         if not ritnGui.main.action[element.name] then return end
-        ritnGui.main.action[element.name](LuaPlayer)
+        ritnGui.main.action[element.name](LuaPlayer, type)
         return
     end
 

@@ -67,6 +67,7 @@ local function close(LuaPlayer)
     luaGui.prop.close(LuaPlayer)
 end
 
+
 -- Action : Selection de l'enfant -> listChildren valider
 local function select_children(LuaPlayer)
     local screen = LuaPlayer.gui.screen
@@ -82,7 +83,7 @@ local function select_children(LuaPlayer)
 
         if table_children[1] == nil then
             table.remove(table_name)
-            LuaPlayer.print({"msg.action-select_children"})
+            LuaPlayer.print({"msg.action-select_children"},{r=1,g=0,b=0,a=1})
             return
         else
             player_main.source_show = player_main.children_selected
@@ -125,15 +126,34 @@ local function back_source(LuaPlayer)
     end
 end
 
+
+local function suppr_source(LuaPlayer)
+
+    local screen = LuaPlayer.gui.screen
+    local frame = screen[ritnmods.gedit.defines.gui.editor_main.frame.name]
+
+    if frame then
+        local LuaGuiElement = flib.gui.get_elementGUI_main(frame, "listChildren")
+        local children_select = global.gedit.players[LuaPlayer.name].main.children_selected
+
+        -- WIP
+
+    end
+
+end
+
+
+
 -- Action : Ouvrir la fenêtre de propriété de l'objet selectionné
-local function open_proprietes(LuaPlayer)
+local function open_proprietes(LuaPlayer, type)
     local screen = LuaPlayer.gui.screen
     local frame = screen[ritnmods.gedit.defines.gui.editor_prop.frame.name]
 
     if frame then 
         luaGui.prop.close(LuaPlayer)
     else 
-        luaGui.prop.open(LuaPlayer)
+        if type == nil then return end
+        luaGui.prop.open(LuaPlayer, type)
     end
 end
 

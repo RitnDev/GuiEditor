@@ -10,12 +10,15 @@ if not ritnlib then require("__RitnLib__/defines") end
   ritnlib.styles = require(ritnlib.defines.styles)
 
 
-  
-if not ritnmods then ritnmods = {
-    gedit = {
+if not ritnmods then ritnmods = {} end
+if not ritnmods.gedit then ritnmods.gedit  = {
     -- definitions des constantes
     defines = require("core/defines"),
-    },
+    version = {
+      Vx = 0,
+      Vy = 0,
+      Vz = 3,
+    }
 } end
 
 

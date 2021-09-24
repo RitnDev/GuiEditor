@@ -14,6 +14,13 @@ local function get_elementGUI_main(frame, elementName)
 end
 
 
+local function getVisibilityPropByType(prop, type)
+
+end
+
+
+
+
 
 
 

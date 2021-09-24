@@ -339,8 +339,202 @@ defines.gui = {
     editor_prop = {
         frame = {
             name = prefix .. "frame-prop",
-            caption = "Propriétés"
         },
+        ScrollProp = {
+            name = prefix .. "scroll-prop"
+        },
+        MainFlowProp = {
+            name = prefix .. "flow-MainFlowProp"
+        },
+
+        -- colonne propriété
+        FlowPropName = {
+            name = prefix .. "flow-FlowPropName"
+        },
+        lineProp = {
+            name = prefix .. "line-lineProp"
+        },
+        FlowPropValue = {
+            name = prefix .. "flow-FlowPropValue"
+        },
+
+        -- Partie buttons
+        FlowPropButton = {
+            name = prefix .. "flow-FlowPropButton"
+        },
+        PropButtonClose = {
+            name = prefix .. "button-close"
+        },
+        PropButtonValid = {
+            name = prefix .. "button-valid"
+        },
+
+
+        -- ligne propriété
+        -- Name
+        FlowPropName1 = {
+            name = prefix .. "flow-prop1_name"
+        },
+        FlowPropName2 = {
+            name = prefix .. "flow-prop2_name"
+        },
+        FlowPropName3 = {
+            name = prefix .. "flow-prop3_name"
+        },
+        FlowPropName4 = {
+            name = prefix .. "flow-prop4_name"
+        },
+        FlowPropName5 = {
+            name = prefix .. "flow-prop5_name"
+        },
+        FlowPropName6 = {
+            name = prefix .. "flow-prop6_name"
+        },
+        FlowPropName7 = {
+            name = prefix .. "flow-prop7_name"
+        },
+        FlowPropName8 = {
+            name = prefix .. "flow-prop8_name"
+        },
+        FlowPropName9 = {
+            name = prefix .. "flow-prop9_name"
+        },
+        FlowPropName10 = {
+            name = prefix .. "flow-prop10_name"
+        },
+        FlowPropName11 = {
+            name = prefix .. "flow-prop11_name"
+        },
+        -- Value
+        FlowPropValue1 = {
+            name = prefix .. "flow-prop1_value"
+        },
+        FlowPropValue2 = {
+            name = prefix .. "flow-prop2_value"
+        },
+        FlowPropValue3 = {
+            name = prefix .. "flow-prop3_value"
+        },
+        FlowPropValue4 = {
+            name = prefix .. "flow-prop4_value"
+        },
+        FlowPropValue5 = {
+            name = prefix .. "flow-prop5_value"
+        },
+        FlowPropValue6 = {
+            name = prefix .. "flow-prop6_value"
+        },
+        FlowPropValue7 = {
+            name = prefix .. "flow-prop7_value"
+        },
+        FlowPropValue8 = {
+            name = prefix .. "flow-prop8_value"
+        },
+        FlowPropValue9 = {
+            name = prefix .. "flow-prop9_value"
+        },
+        FlowPropValue10 = {
+            name = prefix .. "flow-prop10_value"
+        },
+        FlowPropValue11 = {
+            name = prefix .. "flow-prop11_value"
+        },
+
+
+        -- Label Name (prop)
+        LabelProp1Name = {
+            name = prefix .. "label-prop1_name",
+            caption = {"caption.editor_prop-LabelProp1Name"}
+        },
+        LabelProp2Name = {
+            name = prefix .. "label-prop2_name",
+            caption = {"caption.editor_prop-LabelProp2Name"}
+        },
+        LabelProp3Name = {
+            name = prefix .. "label-prop3_name",
+            caption = {"caption.editor_prop-LabelProp3Name"}
+        },
+        LabelProp4Name = {
+            name = prefix .. "label-prop4_name",
+            caption = {"caption.editor_prop-LabelProp4Name"}
+        },
+        LabelProp5Name = {
+            name = prefix .. "label-prop5_name",
+            caption = {"caption.editor_prop-LabelProp5Name"}
+        },
+        LabelProp6Name = {
+            name = prefix .. "label-prop6_name",
+            caption = {"caption.editor_prop-LabelProp6Name"}
+        },
+        LabelProp7Name = {
+            name = prefix .. "label-prop7_name",
+            caption = {"caption.editor_prop-LabelProp7Name"}
+        },
+        LabelProp8Name = {
+            name = prefix .. "label-prop8_name",
+            caption = {"caption.editor_prop-LabelProp8Name"}
+        },
+        LabelProp9Name = {
+            name = prefix .. "label-prop9_name",
+            caption = {"caption.editor_prop-LabelProp9Name"}
+        },
+        LabelProp10Name = {
+            name = prefix .. "label-prop10_name",
+            caption = {"caption.editor_prop-LabelProp10Name"}
+        },
+        LabelProp11Name = {
+            name = prefix .. "label-prop11_name",
+            caption = {"caption.editor_prop-LabelProp11Name"}
+        },
+
+        
+        LabelProp1Info = {
+            name = prefix .. "label-prop1_info",
+        },
+        textProp1Value = {
+            name = prefix .. "text-prop1_value"
+        },
+        textProp2Value = {
+            name = prefix .. "text-prop2_value",
+            caption = "caption"
+        },
+        dropProp3Value = {
+            name = prefix .. "drop-prop3_value",
+            items = {
+                {"caption.editor_prop-dropProp3Value1"},
+                {"caption.editor_prop-dropProp3Value2"},
+            },
+            selected_index = 1,
+        },
+        checkProp4Value = {
+            name = prefix .. "check-prop4_value",
+        },
+        LabelProp4Info = {
+            name = prefix .. "label-prop4_info",
+            caption = {"caption.editor_prop-LabelProp4Info"}
+        },
+        checkProp4Info = {
+            name = prefix .. "check-prop4_info",
+        },
+        textProp5Value = {
+            name = prefix .. "text-prop5_value",
+            caption = ""
+        },
+        checkProp6Value = {
+            name = prefix .. "check-prop6_value",
+        },
+        LabelProp6Info = {
+            name = prefix .. "label-prop6_info",
+            caption = {"caption.editor_prop-LabelProp6Info"}
+        },
+        textProp7Value = {
+            name = prefix .. "text-prop7_value",
+        },
+        textProp8Value = {
+            name = prefix .. "text-prop8_value",
+        },
+
+
     }
 
 }
