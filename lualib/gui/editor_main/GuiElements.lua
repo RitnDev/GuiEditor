@@ -137,7 +137,7 @@ local function create(LuaPlayer)
     content.listChildren.style.width = width - 16
     content.listChildren.style.height = 253
 
-    local children = flib.global.get_children(LuaPlayer)
+    local children = flib.global.list_children(LuaPlayer)
 
     for _,item in pairs(children) do 
         content.listChildren.add_item(item)

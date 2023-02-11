@@ -10,22 +10,22 @@ local width = 380
 local indexElement = 1
 
 
-local function create(LuaPlayer, type, GuiElementName)
+local function create(LuaPlayer, children)
     local screen = LuaPlayer.gui.screen
     local defGuiProp = ritnmods.gedit.defines.gui.editor_prop
     local content = {}
 
     -- verification que GuiElementName n'est pas null,
     -- sinon on met un nom par défaut
-    if GuiElementName == nil then 
-        GuiElementName = type .. indexElement
+    if children.name == nil or children.name == "" then 
+        children.name = children.type .. indexElement
     end
 
     -- Main
     content.main = ritnlib.gui.createFrame(
         screen,
         defGuiProp.frame.name,
-        {"caption.editor_prop-titre", GuiElementName}
+        {"caption.editor_prop-titre", children.name}
     )
     content.main.style.top_padding = 4
     content.main.style.right_padding = 4
@@ -182,14 +182,14 @@ local function create(LuaPlayer, type, GuiElementName)
     content.LabelProp1Info = ritnlib.gui.createLabel(
         content.FlowPropValue1,
         defGuiProp.LabelProp1Info.name,
-        ui_name .. sep .. type .. sep
+        ui_name .. sep .. children.type .. sep
     )
    
     -- Textfield Prop 1 (value)
     content.textProp1Value = ritnlib.gui.createTextField(
         content.FlowPropValue1,
         defGuiProp.textProp1Value.name,
-        GuiElementName
+        children.name
     )
     content.textProp1Value.style.width = 130
 
@@ -200,7 +200,7 @@ local function create(LuaPlayer, type, GuiElementName)
     content.textProp2Value = ritnlib.gui.createTextField(
         content.FlowPropValue2,
         defGuiProp.textProp2Value.name,
-        defGuiProp.textProp2Value.caption
+        children.guiElement.caption
     )
     content.textProp2Value.style.width = 222
 
@@ -213,7 +213,12 @@ local function create(LuaPlayer, type, GuiElementName)
     for _,item in pairs(defGuiProp.dropProp3Value.items) do 
         content.dropProp3Value.add_item(item)
     end
-    content.dropProp3Value.selected_index = defGuiProp.dropProp3Value.selected_index
+    local direction = children.guiElement.direction
+    if direction == "horizontal" then
+        content.dropProp3Value.selected_index = 1
+    else
+        content.dropProp3Value.selected_index = 2
+    end
 
 
     ---- Propriété 4 (visible)
@@ -260,7 +265,7 @@ local function create(LuaPlayer, type, GuiElementName)
     content.textProp7Value = ritnlib.gui.createTextField(
         content.FlowPropValue7,
         defGuiProp.textProp7Value.name,
-        ""
+        children.style.width
     )
     content.textProp7Value.style.width = 80
 
@@ -271,7 +276,7 @@ local function create(LuaPlayer, type, GuiElementName)
     content.textProp8Value = ritnlib.gui.createTextField(
         content.FlowPropValue8,
         defGuiProp.textProp8Value.name,
-        ""
+        children.style.height
     )
     content.textProp8Value.style.width = 80
 

@@ -45,7 +45,7 @@ local module = {}
 module.events = {}
 
 -- Chargement des modules
---module.events[defines.events.on_gui_click] = on_gui_click
+module.events[defines.events.on_gui_click] = on_gui_click
 --module.events[defines.events.on_gui_selection_state_changed] = on_gui_selection_state_changed
 
 return module

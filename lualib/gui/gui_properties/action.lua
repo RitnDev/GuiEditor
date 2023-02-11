@@ -10,6 +10,13 @@ local function none(LuaPlayer)
 end
 
 
+------------------------------------  BUTTONS  ------------------------------------------
+
+-- Action : Fermer la frame -> Gui_Prop
+local function close(LuaPlayer)
+    luaGui.prop.close(LuaPlayer)
+end
+
 
 
 
@@ -17,6 +24,9 @@ end
 --------------------
 local action = {}
 
+--button
+action[ritnmods.gedit.defines.gui.editor_prop.PropButtonClose.name] = close
+action[ritnmods.gedit.defines.gui.editor_prop.PropButtonValid.name] = none
 
 --------------------
 return action

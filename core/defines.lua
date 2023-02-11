@@ -212,13 +212,8 @@ defines.gui = {
         FlowButtonElement = {
             name = prefix .. "flow-buttonElement",
         },
-        buttonAddElement = {
-            name = prefix .. "button-element_add",
-            sprite = defines.styles.sprite.add,
-            tooltip = {"tooltip.editor_main-button_add"}
-        },
 
-
+        
         FlowElement1 = {
             name = prefix .. "flow-element1",
         },
@@ -363,10 +358,10 @@ defines.gui = {
             name = prefix .. "flow-FlowPropButton"
         },
         PropButtonClose = {
-            name = prefix .. "button-close"
+            name = prefix .. "button-Prop_close"
         },
         PropButtonValid = {
-            name = prefix .. "button-valid"
+            name = prefix .. "button-Prop_valid"
         },
 
 

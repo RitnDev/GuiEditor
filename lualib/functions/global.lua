@@ -76,12 +76,13 @@ local function new_player_global(LuaPlayer)
 end
 
 
-
+-- renvoie l'enfant selectionné
 local function get_children(LuaPlayer) 
     if not global.gedit.players[LuaPlayer.name] then return end
 
     local table_name = global.gedit.players[LuaPlayer.name].table_name
     local source = global.gedit.players[LuaPlayer.name].main.path_source["gui"]
+    local children = global.gedit.players[LuaPlayer.name].main.children_selected
 
     if #table_name ~= 1 then 
         for i = 2, #table_name do 
@@ -89,12 +90,62 @@ local function get_children(LuaPlayer)
         end
     end
 
+    return source.children[children]
+end
+
+
+local function set_children(LuaPlayer, value) 
+    if not global.gedit.players[LuaPlayer.name] then return end
+
+    local table_name = global.gedit.players[LuaPlayer.name].table_name
+    local source = global.gedit.players[LuaPlayer.name].main.path_source["gui"]
+    local children = global.gedit.players[LuaPlayer.name].main.children_selected
+
+    if #table_name ~= 1 then 
+        for i = 2, #table_name do 
+            source = source.children[table_name[i]]
+        end
+    end
+    source.children[children] = value
+    
+    -- on remplace le nom de l'enfant si necessaire
+    if value then 
+        if value.name ~= source.children[children].name then 
+            source.children[children] = nil 
+            source.children[value.name] = value
+        else
+            source.children[children] = value 
+        end
+    else
+        source.children[children] = nil
+    end
+end
+
+
+--Renvoie la liste des enfant d'une source selectionné
+local function list_children(LuaPlayer) 
+    --verification que la structure player existe
+    if not global.gedit.players[LuaPlayer.name] then return end
+
+    -- recuperation de la table des nom et de la source origine
+    local table_name = global.gedit.players[LuaPlayer.name].table_name
+    local source = global.gedit.players[LuaPlayer.name].main.path_source["gui"]
+
+    -- on va jusque la source selectionné
+    if #table_name ~= 1 then 
+        for i = 2, #table_name do 
+            source = source.children[table_name[i]]
+        end
+    end
+
+    --on renvoi la liste des enfants de la source selectionné
     local table_children = {}
     for i,v in pairs(source.children) do 
         table.insert(table_children, i)
     end
     return table_children
 end
+
 
 -- renvoie le type d'un enfants selectionnée
 local function get_type_children(LuaPlayer) 
@@ -177,7 +228,9 @@ end
 --------------
 local flib = {}
 flib.new_player_global = new_player_global
+flib.list_children = list_children
 flib.get_children = get_children
+flib.set_children = set_children
 flib.get_type_children = get_type_children
 flib.get_visible_byType = get_visible_byType
 
