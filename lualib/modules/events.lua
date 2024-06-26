@@ -5,20 +5,18 @@ luaGui.main = require(ritnmods.gedit.defines.lib.gui.main.GuiElements)
 
 
 local function call_remote_functions()
-    --pcall(function() remote.call("freeplay", "set_created_items", {}) end) 
-    --pcall(function() remote.call("freeplay", "set_respawn_items", {}) end) 
     pcall(function() remote.call("freeplay", "set_skip_intro", true) end) 
     pcall(function() remote.call("freeplay", "set_disable_crashsite", true) end) 
 end
   
 function events.on_init(event)
-  -- Call remote functions.
-  call_remote_functions()
+    -- Call remote functions.
+    call_remote_functions()
 end
   
 function events.on_load(event)
-  -- Call remote functions.
-  call_remote_functions()
+    -- Call remote functions.
+    call_remote_functions()
 end
 
 
